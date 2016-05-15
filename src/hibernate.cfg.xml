@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/zooba_db?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <mapping class="pojo.User"/>
+    <mapping class="pojo.Model"/>
+    <mapping class="pojo.ModelFeaturesValues"/>
+    <mapping class="pojo.Trim"/>
+    <mapping class="pojo.Days"/>
+    <mapping class="pojo.Vehicle"/>
+    <mapping class="pojo.ServiceProviderServices"/>
+    <mapping class="pojo.Year"/>
+    <mapping class="pojo.ServiceProviderPhone"/>
+    <mapping class="pojo.Address"/>
+    <mapping class="pojo.Make"/>
+    <mapping class="pojo.VehicleModel"/>
+    <mapping class="pojo.Trips"/>
+    <mapping class="pojo.ServiceProvider"/>
+    <mapping class="pojo.Coordinates"/>
+    <mapping class="pojo.TrackingData"/>
+    <mapping class="pojo.TrackingTypes"/>
+    <mapping class="pojo.Service"/>
+    <mapping class="pojo.ServiceProviderCalendar"/>
+    <mapping class="pojo.CarFeatures"/>
+    <mapping class="pojo.Type"/>
+    <mapping class="pojo.MeasuringUnit"/>
+  </session-factory>
+</hibernate-configuration>
