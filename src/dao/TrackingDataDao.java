@@ -5,12 +5,7 @@
  */
 package dao;
 
-import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pojo.TrackingData;

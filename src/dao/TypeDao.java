@@ -6,14 +6,11 @@
  */
 package dao;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pojo.MeasuringUnit;
 import pojo.Service;
-import pojo.TrackingData;
 import pojo.TrackingTypes;
 import pojo.Type;
 

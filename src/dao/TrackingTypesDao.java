@@ -5,9 +5,6 @@
  */
 package dao;
 
-import javax.persistence.Entity;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pojo.TrackingData;
