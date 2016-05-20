@@ -79,11 +79,3 @@ local.properties
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-src/abstractDao/AbstractDao.java
-
-src/abstractDao/HibernateFactory.java
-
-src/dao/UserDao.java
-
-src/Exceptions/DataAccessLayerException.java
