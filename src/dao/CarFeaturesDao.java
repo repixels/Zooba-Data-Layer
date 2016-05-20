@@ -38,7 +38,7 @@ public class CarFeaturesDao {
         return cf;
     }
     
-    public CarFeatures getByVehicleModel(ModelFeaturesValues modelFeaturesValues) {
+    public CarFeatures getByModelFeaturesValues(ModelFeaturesValues modelFeaturesValues) {
         Session session = factory.openSession();
 
         CarFeatures cf = (CarFeatures) session.createQuery("SELECT cf FROM CarFeatures cf ,ModelFeaturesValues mfv WHERE mfv.id = :id and mfv.carFeatures = cf").setInteger("id", modelFeaturesValues.getId()).uniqueResult();
