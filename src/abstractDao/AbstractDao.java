@@ -11,6 +11,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Example;
+import pojo.User;
 
 /**
  *
@@ -84,6 +86,20 @@ public abstract class AbstractDao<T> {
             Query query = session.createQuery("from " + clazz.getName());
             objects = query.list();
             tx.commit();
+        } catch (HibernateException e) {
+            handleException(e);
+        } finally {
+            HibernateFactory.close(session);
+        }
+        return objects;
+    }
+
+    protected List<T> findByExample(T t) {
+        List<T> objects = null;
+        try {
+            startOperation();
+            objects = session.createCriteria(t.getClass()).add(Example.create(t)).list();
+//            tx.commit();
         } catch (HibernateException e) {
             handleException(e);
         } finally {
