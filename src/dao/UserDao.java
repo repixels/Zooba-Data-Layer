@@ -7,7 +7,13 @@ package dao;
 
 import Exceptions.DataAccessLayerException;
 import abstractDao.AbstractDao;
+import abstractDao.HibernateFactory;
 import java.util.List;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Example;
+import org.hibernate.criterion.Restrictions;
 import pojo.User;
 
 /**
@@ -15,6 +21,8 @@ import pojo.User;
  * @author Ehab
  */
 public class UserDao extends AbstractDao<User> {
+
+    Session session;
 
     public UserDao() {
         super(User.class);
@@ -25,22 +33,27 @@ public class UserDao extends AbstractDao<User> {
         super.create(u);
     }
 
-    public List<User> findAll() {
+    public List<User> findAll() throws DataAccessLayerException {
         return super.findAll(User.class); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public User find(Long id) {
+    public User find(Long id) throws DataAccessLayerException {
         return super.find(User.class, id); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(User t) {
+    public void delete(User t) throws DataAccessLayerException {
         super.delete(t); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void saveOrUpdate(User t) {
+    public void saveOrUpdate(User t) throws DataAccessLayerException {
         super.saveOrUpdate(t); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public List<User> findByExample(User t) throws DataAccessLayerException {
+        return super.findByExample(t);
+    }
+    
 }
