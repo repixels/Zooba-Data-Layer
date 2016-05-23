@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -31,8 +31,8 @@ public class VehicleModel  implements java.io.Serializable {
      private Model model;
      private Trim trim;
      private Year year;
-     private Set<ModelFeaturesValues> modelFeaturesValueses = new HashSet<ModelFeaturesValues>(0);
-     private Set<Vehicle> vehicles = new HashSet<Vehicle>(0);
+     private Set modelFeaturesValueses = new HashSet(0);
+     private Set vehicles = new HashSet(0);
 
     public VehicleModel() {
     }
@@ -43,7 +43,7 @@ public class VehicleModel  implements java.io.Serializable {
         this.trim = trim;
         this.year = year;
     }
-    public VehicleModel(Model model, Trim trim, Year year, Set<ModelFeaturesValues> modelFeaturesValueses, Set<Vehicle> vehicles) {
+    public VehicleModel(Model model, Trim trim, Year year, Set modelFeaturesValueses, Set vehicles) {
        this.model = model;
        this.trim = trim;
        this.year = year;
@@ -97,20 +97,20 @@ public class VehicleModel  implements java.io.Serializable {
     @JoinTable(name="model_features", catalog="zooba_db", joinColumns = { 
         @JoinColumn(name="vehicle_model_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="model_feature_id", nullable=false, updatable=false) })
-    public Set<ModelFeaturesValues> getModelFeaturesValueses() {
+    public Set getModelFeaturesValueses() {
         return this.modelFeaturesValueses;
     }
     
-    public void setModelFeaturesValueses(Set<ModelFeaturesValues> modelFeaturesValueses) {
+    public void setModelFeaturesValueses(Set modelFeaturesValueses) {
         this.modelFeaturesValueses = modelFeaturesValueses;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="vehicleModel")
-    public Set<Vehicle> getVehicles() {
+    public Set getVehicles() {
         return this.vehicles;
     }
     
-    public void setVehicles(Set<Vehicle> vehicles) {
+    public void setVehicles(Set vehicles) {
         this.vehicles = vehicles;
     }
 

@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -29,7 +29,7 @@ public class Type  implements java.io.Serializable {
      private MeasuringUnit measuringUnit;
      private Service service;
      private String name;
-     private Set<TrackingTypes> trackingTypeses = new HashSet<TrackingTypes>(0);
+     private Set trackingDatas = new HashSet(0);
 
     public Type() {
     }
@@ -40,11 +40,11 @@ public class Type  implements java.io.Serializable {
         this.service = service;
         this.name = name;
     }
-    public Type(MeasuringUnit measuringUnit, Service service, String name, Set<TrackingTypes> trackingTypeses) {
+    public Type(MeasuringUnit measuringUnit, Service service, String name, Set trackingDatas) {
        this.measuringUnit = measuringUnit;
        this.service = service;
        this.name = name;
-       this.trackingTypeses = trackingTypeses;
+       this.trackingDatas = trackingDatas;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -90,12 +90,12 @@ public class Type  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="type")
-    public Set<TrackingTypes> getTrackingTypeses() {
-        return this.trackingTypeses;
+    public Set getTrackingDatas() {
+        return this.trackingDatas;
     }
     
-    public void setTrackingTypeses(Set<TrackingTypes> trackingTypeses) {
-        this.trackingTypeses = trackingTypeses;
+    public void setTrackingDatas(Set trackingDatas) {
+        this.trackingDatas = trackingDatas;
     }
 
 

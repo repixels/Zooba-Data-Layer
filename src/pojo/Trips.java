@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -30,7 +30,7 @@ public class Trips  implements java.io.Serializable {
      private String image;
      private int coveredMilage;
      private int intialOdemeter;
-     private Set<Coordinates> coordinateses = new HashSet<Coordinates>(0);
+     private Set coordinateses = new HashSet(0);
 
     public Trips() {
     }
@@ -41,7 +41,7 @@ public class Trips  implements java.io.Serializable {
         this.coveredMilage = coveredMilage;
         this.intialOdemeter = intialOdemeter;
     }
-    public Trips(Vehicle vehicle, String image, int coveredMilage, int intialOdemeter, Set<Coordinates> coordinateses) {
+    public Trips(Vehicle vehicle, String image, int coveredMilage, int intialOdemeter, Set coordinateses) {
        this.vehicle = vehicle;
        this.image = image;
        this.coveredMilage = coveredMilage;
@@ -102,11 +102,11 @@ public class Trips  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="trips")
-    public Set<Coordinates> getCoordinateses() {
+    public Set getCoordinateses() {
         return this.coordinateses;
     }
     
-    public void setCoordinateses(Set<Coordinates> coordinateses) {
+    public void setCoordinateses(Set coordinateses) {
         this.coordinateses = coordinateses;
     }
 

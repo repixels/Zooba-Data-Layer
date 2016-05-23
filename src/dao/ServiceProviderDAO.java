@@ -5,6 +5,7 @@
  */
 package dao;
 
+import abstractDao.AbstractDao;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -21,12 +22,12 @@ import pojo.ServiceProviderServices;
  *
  * @author omima
  */
-public class ServiceProviderDAO {
+public class ServiceProviderDAO extends AbstractDao<ServiceProvider> {
 
     SessionFactory sessionFactory;
 
     public ServiceProviderDAO(SessionFactory sessionFactory) {
-
+        super(ServiceProvider.class);
         this.sessionFactory = sessionFactory;
     }
 

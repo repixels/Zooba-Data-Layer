@@ -1,10 +1,8 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +11,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,30 +26,30 @@ public class TrackingData  implements java.io.Serializable {
 
 
      private Integer id;
+     private Type type;
      private Vehicle vehicle;
      private int intialOdemeter;
      private Date dateAdded;
      private Date dateModified;
-     private int vehicleTrimId;
-     private Set<TrackingTypes> trackingTypeses = new HashSet<TrackingTypes>(0);
+     private String value;
 
     public TrackingData() {
     }
 
 	
-    public TrackingData(Vehicle vehicle, int intialOdemeter, Date dateAdded, int vehicleTrimId) {
+    public TrackingData(Type type, Vehicle vehicle, int intialOdemeter, Date dateAdded) {
+        this.type = type;
         this.vehicle = vehicle;
         this.intialOdemeter = intialOdemeter;
         this.dateAdded = dateAdded;
-        this.vehicleTrimId = vehicleTrimId;
     }
-    public TrackingData(Vehicle vehicle, int intialOdemeter, Date dateAdded, Date dateModified, int vehicleTrimId, Set<TrackingTypes> trackingTypeses) {
+    public TrackingData(Type type, Vehicle vehicle, int intialOdemeter, Date dateAdded, Date dateModified, String value) {
+       this.type = type;
        this.vehicle = vehicle;
        this.intialOdemeter = intialOdemeter;
        this.dateAdded = dateAdded;
        this.dateModified = dateModified;
-       this.vehicleTrimId = vehicleTrimId;
-       this.trackingTypeses = trackingTypeses;
+       this.value = value;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -65,6 +62,16 @@ public class TrackingData  implements java.io.Serializable {
     
     public void setId(Integer id) {
         this.id = id;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="type_id", nullable=false)
+    public Type getType() {
+        return this.type;
+    }
+    
+    public void setType(Type type) {
+        this.type = type;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -108,22 +115,13 @@ public class TrackingData  implements java.io.Serializable {
     }
 
     
-    @Column(name="vehicle_trim_id", nullable=false)
-    public int getVehicleTrimId() {
-        return this.vehicleTrimId;
+    @Column(name="value")
+    public String getValue() {
+        return this.value;
     }
     
-    public void setVehicleTrimId(int vehicleTrimId) {
-        this.vehicleTrimId = vehicleTrimId;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="trackingData")
-    public Set<TrackingTypes> getTrackingTypeses() {
-        return this.trackingTypeses;
-    }
-    
-    public void setTrackingTypeses(Set<TrackingTypes> trackingTypeses) {
-        this.trackingTypeses = trackingTypeses;
+    public void setValue(String value) {
+        this.value = value;
     }
 
 

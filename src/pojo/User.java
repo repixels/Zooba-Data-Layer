@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -35,24 +35,28 @@ public class User  implements java.io.Serializable {
      private String lastName;
      private String phone;
      private String image;
-     private Set<Vehicle> vehicles = new HashSet<Vehicle>(0);
-     private Set<Vehicle> vehicles_1 = new HashSet<Vehicle>(0);
+     private String password;
+     private Set vehicles = new HashSet(0);
+     private Set vehicles_1 = new HashSet(0);
 
     public User() {
     }
 
 	
-    public User(String username, String firstName) {
+    public User(String username, String email, String firstName, String password) {
         this.username = username;
+        this.email = email;
         this.firstName = firstName;
+        this.password = password;
     }
-    public User(String username, String email, String firstName, String lastName, String phone, String image, Set<Vehicle> vehicles, Set<Vehicle> vehicles_1) {
+    public User(String username, String email, String firstName, String lastName, String phone, String image, String password, Set vehicles, Set vehicles_1) {
        this.username = username;
        this.email = email;
        this.firstName = firstName;
        this.lastName = lastName;
        this.phone = phone;
        this.image = image;
+       this.password = password;
        this.vehicles = vehicles;
        this.vehicles_1 = vehicles_1;
     }
@@ -80,7 +84,7 @@ public class User  implements java.io.Serializable {
     }
 
     
-    @Column(name="email", unique=true, length=62)
+    @Column(name="email", unique=true, nullable=false, length=62)
     public String getEmail() {
         return this.email;
     }
@@ -129,24 +133,34 @@ public class User  implements java.io.Serializable {
         this.image = image;
     }
 
+    
+    @Column(name="password", nullable=false, length=45)
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="user_vehicles", catalog="zooba_db", joinColumns = { 
         @JoinColumn(name="user_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="vehicle_id", nullable=false, updatable=false) })
-    public Set<Vehicle> getVehicles() {
+    public Set getVehicles() {
         return this.vehicles;
     }
     
-    public void setVehicles(Set<Vehicle> vehicles) {
+    public void setVehicles(Set vehicles) {
         this.vehicles = vehicles;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
-    public Set<Vehicle> getVehicles_1() {
+    public Set getVehicles_1() {
         return this.vehicles_1;
     }
     
-    public void setVehicles_1(Set<Vehicle> vehicles_1) {
+    public void setVehicles_1(Set vehicles_1) {
         this.vehicles_1 = vehicles_1;
     }
 

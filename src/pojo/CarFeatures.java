@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -27,7 +27,7 @@ public class CarFeatures  implements java.io.Serializable {
 
      private Integer id;
      private String name;
-     private Set<ModelFeaturesValues> modelFeaturesValueses = new HashSet<ModelFeaturesValues>(0);
+     private Set modelFeaturesValueses = new HashSet(0);
 
     public CarFeatures() {
     }
@@ -36,7 +36,7 @@ public class CarFeatures  implements java.io.Serializable {
     public CarFeatures(String name) {
         this.name = name;
     }
-    public CarFeatures(String name, Set<ModelFeaturesValues> modelFeaturesValueses) {
+    public CarFeatures(String name, Set modelFeaturesValueses) {
        this.name = name;
        this.modelFeaturesValueses = modelFeaturesValueses;
     }
@@ -64,11 +64,11 @@ public class CarFeatures  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="carFeatures")
-    public Set<ModelFeaturesValues> getModelFeaturesValueses() {
+    public Set getModelFeaturesValueses() {
         return this.modelFeaturesValueses;
     }
     
-    public void setModelFeaturesValueses(Set<ModelFeaturesValues> modelFeaturesValueses) {
+    public void setModelFeaturesValueses(Set modelFeaturesValueses) {
         this.modelFeaturesValueses = modelFeaturesValueses;
     }
 

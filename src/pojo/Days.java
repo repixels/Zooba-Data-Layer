@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -27,7 +27,7 @@ public class Days  implements java.io.Serializable {
 
      private Integer id;
      private String name;
-     private Set<ServiceProviderCalendar> serviceProviderCalendars = new HashSet<ServiceProviderCalendar>(0);
+     private Set serviceProviderCalendars = new HashSet(0);
 
     public Days() {
     }
@@ -36,7 +36,7 @@ public class Days  implements java.io.Serializable {
     public Days(String name) {
         this.name = name;
     }
-    public Days(String name, Set<ServiceProviderCalendar> serviceProviderCalendars) {
+    public Days(String name, Set serviceProviderCalendars) {
        this.name = name;
        this.serviceProviderCalendars = serviceProviderCalendars;
     }
@@ -64,11 +64,11 @@ public class Days  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="days")
-    public Set<ServiceProviderCalendar> getServiceProviderCalendars() {
+    public Set getServiceProviderCalendars() {
         return this.serviceProviderCalendars;
     }
     
-    public void setServiceProviderCalendars(Set<ServiceProviderCalendar> serviceProviderCalendars) {
+    public void setServiceProviderCalendars(Set serviceProviderCalendars) {
         this.serviceProviderCalendars = serviceProviderCalendars;
     }
 

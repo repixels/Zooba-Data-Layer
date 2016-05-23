@@ -5,11 +5,11 @@
  */
 package dao;
 
+import abstractDao.AbstractDao;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pojo.TrackingData;
-import pojo.TrackingTypes;
 import pojo.Vehicle;
 
 /**
@@ -17,10 +17,11 @@ import pojo.Vehicle;
  * @author Mohammed
  */
 
-public class TrackingDataDao {
+public class TrackingDataDao extends AbstractDao<TrackingData> {
        private final SessionFactory factory;
 
     public TrackingDataDao(SessionFactory factory) {
+        super(TrackingData.class);
         this.factory = factory ;
     }
 
@@ -47,15 +48,5 @@ public class TrackingDataDao {
          session.close();
         return list;
     }
-       
-       public TrackingData getBytrackingTypes(TrackingTypes trackingType){
-        Session session=factory.openSession();
-        
-         TrackingData td =  (TrackingData) session.createQuery("SELECT td FROM TrackingData td ,TrackingTypes tt WHERE tt.id = :id and tt.trackingData = td").setInteger("id", trackingType.getId()).uniqueResult();
-         session.close();
-        return td;
-    }
-       
-       
-    
+  
 }

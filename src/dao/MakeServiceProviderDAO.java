@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pojo.ServiceProvider;
 import pojo.Make;
+
 /**
  *
  * @author omima
@@ -24,11 +25,11 @@ public class MakeServiceProviderDAO {
 
         this.sessionFactory = sessionFactory;
     }
-    
- public ArrayList<ServiceProvider> findMakeServiceProvider(Make make) {
-       
-     Session session = sessionFactory.openSession();
-     
+
+    public ArrayList<ServiceProvider> findMakeServiceProvider(Make make) {
+
+        Session session = sessionFactory.openSession();
+
         Criteria crit = session.createCriteria(Make.class);
 
         List results = new ArrayList<ServiceProvider>();
@@ -41,11 +42,11 @@ public class MakeServiceProviderDAO {
 
         return (ArrayList<ServiceProvider>) results;
     }
- 
- public ArrayList<Make> findServiceProviderMake(ServiceProvider sp) {
-       
-     Session session = sessionFactory.openSession();
-     
+
+    public ArrayList<Make> findServiceProviderMake(ServiceProvider sp) {
+
+        Session session = sessionFactory.openSession();
+
         Criteria crit = session.createCriteria(ServiceProvider.class);
 
         List results = new ArrayList<Make>();
@@ -58,5 +59,5 @@ public class MakeServiceProviderDAO {
 
         return (ArrayList<Make>) results;
     }
-    
+
 }

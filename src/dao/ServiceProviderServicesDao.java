@@ -5,24 +5,25 @@
  */
 package dao;
 
+import abstractDao.AbstractDao;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pojo.Service;
 import pojo.ServiceProvider;
-import pojo.ServiceProviderPhone;
 import pojo.ServiceProviderServices;
 
 /**
  *
  * @author Mohammed
  */
-public class ServiceProviderServicesDao {
+public class ServiceProviderServicesDao extends AbstractDao<ServiceProviderServices> {
 
     private final SessionFactory factory;
 
     public ServiceProviderServicesDao(SessionFactory factory) {
+        super(ServiceProviderServices.class);
         this.factory = factory;
     }
 

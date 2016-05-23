@@ -17,44 +17,45 @@ import pojo.Year;
  *
  * @author yoka
  */
-public class YearDao extends AbstractDao<Year>{
+public class YearDao extends AbstractDao<Year> {
+
     Session session;
+
     public YearDao() {
-     super(Year.class);
-        session=HibernateFactory.openSession();
+        super(Year.class);
+        session = HibernateFactory.openSession();
     }
-    
-     public List<Year> getYearByModel(String model)
-     {
-      Criteria crt=session.createCriteria(Year.class,"year").
-              createAlias("year.vehicleModels", "vModel")
-            .createAlias("vModel.model", "model")
-             .add(Restrictions.like("model.name", "%"+model+"%"));
-    List<Year> lst=crt.list();
- 
-    return lst;
-     }
-         public List<Year> getYearByTrim(String trim)
-     {
-      Criteria crt=session.createCriteria(Year.class,"year").
-              createAlias("year.vehicleModels", "vModel")
-            .createAlias("vModel.trim", "trim")
-             .add(Restrictions.like("trim.name", "%"+trim+"%"));
-    List<Year> lst=crt.list();
- 
-    return lst;
-     }
-         public List<Year> getYearBytrimAndModel(String trim ,String model)
-         {
-             Criteria crt=session.createCriteria(Year.class,"year").
-              createAlias("year.vehicleModels", "vModel")
-            .createAlias("vModel.trim", "trim")
-                       .add(Restrictions.like("trim.name", "%"+trim+"%"))
-                     .createAlias("vModel.model", "model")
-                     .add(Restrictions.like("model.name", "%"+model+"%"));
-           
-    List<Year> lst=crt.list();
- 
-    return lst;
-         }   
+
+    public List<Year> getYearByModel(String model) {
+        Criteria crt = session.createCriteria(Year.class, "year").
+                createAlias("year.vehicleModels", "vModel")
+                .createAlias("vModel.model", "model")
+                .add(Restrictions.like("model.name", "%" + model + "%"));
+        List<Year> lst = crt.list();
+
+        return lst;
+    }
+
+    public List<Year> getYearByTrim(String trim) {
+        Criteria crt = session.createCriteria(Year.class, "year").
+                createAlias("year.vehicleModels", "vModel")
+                .createAlias("vModel.trim", "trim")
+                .add(Restrictions.like("trim.name", "%" + trim + "%"));
+        List<Year> lst = crt.list();
+
+        return lst;
+    }
+
+    public List<Year> getYearBytrimAndModel(String trim, String model) {
+        Criteria crt = session.createCriteria(Year.class, "year").
+                createAlias("year.vehicleModels", "vModel")
+                .createAlias("vModel.trim", "trim")
+                .add(Restrictions.like("trim.name", "%" + trim + "%"))
+                .createAlias("vModel.model", "model")
+                .add(Restrictions.like("model.name", "%" + model + "%"));
+
+        List<Year> lst = crt.list();
+
+        return lst;
+    }
 }
