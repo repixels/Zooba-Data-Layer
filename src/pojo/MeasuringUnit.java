@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,8 +26,7 @@ public class MeasuringUnit  implements java.io.Serializable {
      private Integer id;
      private String name;
      private String suffix;
-     private String measuringUnitcol;
-     private Set<Type> types = new HashSet<Type>(0);
+     private Set types = new HashSet(0);
 
     public MeasuringUnit() {
     }
@@ -37,10 +36,9 @@ public class MeasuringUnit  implements java.io.Serializable {
         this.name = name;
         this.suffix = suffix;
     }
-    public MeasuringUnit(String name, String suffix, String measuringUnitcol, Set<Type> types) {
+    public MeasuringUnit(String name, String suffix, Set types) {
        this.name = name;
        this.suffix = suffix;
-       this.measuringUnitcol = measuringUnitcol;
        this.types = types;
     }
    
@@ -76,22 +74,12 @@ public class MeasuringUnit  implements java.io.Serializable {
         this.suffix = suffix;
     }
 
-    
-    @Column(name="measuring_unitcol", length=45)
-    public String getMeasuringUnitcol() {
-        return this.measuringUnitcol;
-    }
-    
-    public void setMeasuringUnitcol(String measuringUnitcol) {
-        this.measuringUnitcol = measuringUnitcol;
-    }
-
 @OneToMany(fetch=FetchType.LAZY, mappedBy="measuringUnit")
-    public Set<Type> getTypes() {
+    public Set getTypes() {
         return this.types;
     }
     
-    public void setTypes(Set<Type> types) {
+    public void setTypes(Set types) {
         this.types = types;
     }
 

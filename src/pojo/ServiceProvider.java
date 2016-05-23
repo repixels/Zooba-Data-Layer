@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -33,21 +33,17 @@ public class ServiceProvider  implements java.io.Serializable {
      private String name;
      private String email;
      private String website;
-     private Set<ServiceProviderServices> serviceProviderServiceses = new HashSet<ServiceProviderServices>(0);
+     private Set serviceProviderServiceses = new HashSet(0);
      private Address address;
-     private Set<ServiceProviderCalendar> serviceProviderCalendars = new HashSet<ServiceProviderCalendar>(0);
-     private Set<Make> makes = new HashSet<Make>(0);
-     private Set<ServiceProviderPhone> serviceProviderPhones = new HashSet<ServiceProviderPhone>(0);
-     private Set<ServiceProvider> serviceProviders = new HashSet<ServiceProvider>(0);
+     private Set serviceProviderCalendars = new HashSet(0);
+     private Set makes = new HashSet(0);
+     private Set serviceProviderPhones = new HashSet(0);
+     private Set serviceProviders = new HashSet(0);
 
     public ServiceProvider() {
     }
 
-	
-    public ServiceProvider(ServiceProvider serviceProvider) {
-        this.serviceProvider = serviceProvider;
-    }
-    public ServiceProvider(ServiceProvider serviceProvider, String name, String email, String website, Set<ServiceProviderServices> serviceProviderServiceses, Address address, Set<ServiceProviderCalendar> serviceProviderCalendars, Set<Make> makes, Set<ServiceProviderPhone> serviceProviderPhones, Set<ServiceProvider> serviceProviders) {
+    public ServiceProvider(ServiceProvider serviceProvider, String name, String email, String website, Set serviceProviderServiceses, Address address, Set serviceProviderCalendars, Set makes, Set serviceProviderPhones, Set serviceProviders) {
        this.serviceProvider = serviceProvider;
        this.name = name;
        this.email = email;
@@ -73,7 +69,7 @@ public class ServiceProvider  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="service_provide_branch", nullable=false)
+    @JoinColumn(name="service_provide_branch")
     public ServiceProvider getServiceProvider() {
         return this.serviceProvider;
     }
@@ -113,11 +109,11 @@ public class ServiceProvider  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="serviceProvider")
-    public Set<ServiceProviderServices> getServiceProviderServiceses() {
+    public Set getServiceProviderServiceses() {
         return this.serviceProviderServiceses;
     }
     
-    public void setServiceProviderServiceses(Set<ServiceProviderServices> serviceProviderServiceses) {
+    public void setServiceProviderServiceses(Set serviceProviderServiceses) {
         this.serviceProviderServiceses = serviceProviderServiceses;
     }
 
@@ -131,11 +127,11 @@ public class ServiceProvider  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="serviceProvider")
-    public Set<ServiceProviderCalendar> getServiceProviderCalendars() {
+    public Set getServiceProviderCalendars() {
         return this.serviceProviderCalendars;
     }
     
-    public void setServiceProviderCalendars(Set<ServiceProviderCalendar> serviceProviderCalendars) {
+    public void setServiceProviderCalendars(Set serviceProviderCalendars) {
         this.serviceProviderCalendars = serviceProviderCalendars;
     }
 
@@ -143,29 +139,29 @@ public class ServiceProvider  implements java.io.Serializable {
     @JoinTable(name="make_service_providers", catalog="zooba_db", joinColumns = { 
         @JoinColumn(name="service_provider_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="make_id", nullable=false, updatable=false) })
-    public Set<Make> getMakes() {
+    public Set getMakes() {
         return this.makes;
     }
     
-    public void setMakes(Set<Make> makes) {
+    public void setMakes(Set makes) {
         this.makes = makes;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="serviceProvider")
-    public Set<ServiceProviderPhone> getServiceProviderPhones() {
+    public Set getServiceProviderPhones() {
         return this.serviceProviderPhones;
     }
     
-    public void setServiceProviderPhones(Set<ServiceProviderPhone> serviceProviderPhones) {
+    public void setServiceProviderPhones(Set serviceProviderPhones) {
         this.serviceProviderPhones = serviceProviderPhones;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="serviceProvider")
-    public Set<ServiceProvider> getServiceProviders() {
+    public Set getServiceProviders() {
         return this.serviceProviders;
     }
     
-    public void setServiceProviders(Set<ServiceProvider> serviceProviders) {
+    public void setServiceProviders(Set serviceProviders) {
         this.serviceProviders = serviceProviders;
     }
 
