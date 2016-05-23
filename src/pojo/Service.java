@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -27,8 +27,8 @@ public class Service  implements java.io.Serializable {
 
      private Integer id;
      private String name;
-     private Set<ServiceProviderServices> serviceProviderServiceses = new HashSet<ServiceProviderServices>(0);
-     private Set<Type> types = new HashSet<Type>(0);
+     private Set serviceProviderServiceses = new HashSet(0);
+     private Set types = new HashSet(0);
 
     public Service() {
     }
@@ -37,7 +37,7 @@ public class Service  implements java.io.Serializable {
     public Service(String name) {
         this.name = name;
     }
-    public Service(String name, Set<ServiceProviderServices> serviceProviderServiceses, Set<Type> types) {
+    public Service(String name, Set serviceProviderServiceses, Set types) {
        this.name = name;
        this.serviceProviderServiceses = serviceProviderServiceses;
        this.types = types;
@@ -66,20 +66,20 @@ public class Service  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="service")
-    public Set<ServiceProviderServices> getServiceProviderServiceses() {
+    public Set getServiceProviderServiceses() {
         return this.serviceProviderServiceses;
     }
     
-    public void setServiceProviderServiceses(Set<ServiceProviderServices> serviceProviderServiceses) {
+    public void setServiceProviderServiceses(Set serviceProviderServiceses) {
         this.serviceProviderServiceses = serviceProviderServiceses;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="service")
-    public Set<Type> getTypes() {
+    public Set getTypes() {
         return this.types;
     }
     
-    public void setTypes(Set<Type> types) {
+    public void setTypes(Set types) {
         this.types = types;
     }
 

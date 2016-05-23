@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -27,7 +27,7 @@ public class Year  implements java.io.Serializable {
 
      private Integer id;
      private int name;
-     private Set<VehicleModel> vehicleModels = new HashSet<VehicleModel>(0);
+     private Set vehicleModels = new HashSet(0);
 
     public Year() {
     }
@@ -36,7 +36,7 @@ public class Year  implements java.io.Serializable {
     public Year(int name) {
         this.name = name;
     }
-    public Year(int name, Set<VehicleModel> vehicleModels) {
+    public Year(int name, Set vehicleModels) {
        this.name = name;
        this.vehicleModels = vehicleModels;
     }
@@ -64,11 +64,11 @@ public class Year  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="year")
-    public Set<VehicleModel> getVehicleModels() {
+    public Set getVehicleModels() {
         return this.vehicleModels;
     }
     
-    public void setVehicleModels(Set<VehicleModel> vehicleModels) {
+    public void setVehicleModels(Set vehicleModels) {
         this.vehicleModels = vehicleModels;
     }
 

@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -32,8 +32,8 @@ public class Make  implements java.io.Serializable {
      private String name;
      private String niceName;
      private String image;
-     private Set<ServiceProvider> serviceProviders = new HashSet<ServiceProvider>(0);
-     private Set<Model> models = new HashSet<Model>(0);
+     private Set serviceProviders = new HashSet(0);
+     private Set models = new HashSet(0);
 
     public Make() {
     }
@@ -43,7 +43,7 @@ public class Make  implements java.io.Serializable {
         this.name = name;
         this.niceName = niceName;
     }
-    public Make(String name, String niceName, String image, Set<ServiceProvider> serviceProviders, Set<Model> models) {
+    public Make(String name, String niceName, String image, Set serviceProviders, Set models) {
        this.name = name;
        this.niceName = niceName;
        this.image = image;
@@ -97,20 +97,20 @@ public class Make  implements java.io.Serializable {
     @JoinTable(name="make_service_providers", catalog="zooba_db", joinColumns = { 
         @JoinColumn(name="make_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="service_provider_id", nullable=false, updatable=false) })
-    public Set<ServiceProvider> getServiceProviders() {
+    public Set getServiceProviders() {
         return this.serviceProviders;
     }
     
-    public void setServiceProviders(Set<ServiceProvider> serviceProviders) {
+    public void setServiceProviders(Set serviceProviders) {
         this.serviceProviders = serviceProviders;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="make")
-    public Set<Model> getModels() {
+    public Set getModels() {
         return this.models;
     }
     
-    public void setModels(Set<Model> models) {
+    public void setModels(Set models) {
         this.models = models;
     }
 

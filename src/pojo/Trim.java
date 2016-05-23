@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -25,7 +25,7 @@ public class Trim  implements java.io.Serializable {
 
      private Integer id;
      private String name;
-     private Set<VehicleModel> vehicleModels = new HashSet<VehicleModel>(0);
+     private Set vehicleModels = new HashSet(0);
 
     public Trim() {
     }
@@ -34,7 +34,7 @@ public class Trim  implements java.io.Serializable {
     public Trim(String name) {
         this.name = name;
     }
-    public Trim(String name, Set<VehicleModel> vehicleModels) {
+    public Trim(String name, Set vehicleModels) {
        this.name = name;
        this.vehicleModels = vehicleModels;
     }
@@ -62,11 +62,11 @@ public class Trim  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="trim")
-    public Set<VehicleModel> getVehicleModels() {
+    public Set getVehicleModels() {
         return this.vehicleModels;
     }
     
-    public void setVehicleModels(Set<VehicleModel> vehicleModels) {
+    public void setVehicleModels(Set vehicleModels) {
         this.vehicleModels = vehicleModels;
     }
 

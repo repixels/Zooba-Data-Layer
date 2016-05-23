@@ -11,7 +11,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pojo.MeasuringUnit;
 import pojo.Service;
-import pojo.TrackingTypes;
 import pojo.Type;
 
 /**
@@ -48,14 +47,6 @@ public class TypeDao {
         List<Type> list = session.createQuery("SELECT t FROM Type t WHERE t.service = :id").setInteger("id", service.getId()).list();
         session.close();
         return list;
-    }
-
-    public Type getByTrackingType(TrackingTypes trackingType) {
-        Session session = factory.openSession();
-
-        Type t = (Type) session.createQuery("SELECT t FROM Type t,TrackingTypes tt WHERE tt.id = :id and tt.type = t").setInteger("id", trackingType.getId()).uniqueResult();
-        session.close();
-        return t;
     }
 
 }

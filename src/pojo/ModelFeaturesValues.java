@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -31,7 +31,7 @@ public class ModelFeaturesValues  implements java.io.Serializable {
      private Integer id;
      private CarFeatures carFeatures;
      private String value;
-     private Set<VehicleModel> vehicleModels = new HashSet<VehicleModel>(0);
+     private Set vehicleModels = new HashSet(0);
 
     public ModelFeaturesValues() {
     }
@@ -41,7 +41,7 @@ public class ModelFeaturesValues  implements java.io.Serializable {
         this.carFeatures = carFeatures;
         this.value = value;
     }
-    public ModelFeaturesValues(CarFeatures carFeatures, String value, Set<VehicleModel> vehicleModels) {
+    public ModelFeaturesValues(CarFeatures carFeatures, String value, Set vehicleModels) {
        this.carFeatures = carFeatures;
        this.value = value;
        this.vehicleModels = vehicleModels;
@@ -83,11 +83,11 @@ public class ModelFeaturesValues  implements java.io.Serializable {
     @JoinTable(name="model_features", catalog="zooba_db", joinColumns = { 
         @JoinColumn(name="model_feature_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="vehicle_model_id", nullable=false, updatable=false) })
-    public Set<VehicleModel> getVehicleModels() {
+    public Set getVehicleModels() {
         return this.vehicleModels;
     }
     
-    public void setVehicleModels(Set<VehicleModel> vehicleModels) {
+    public void setVehicleModels(Set vehicleModels) {
         this.vehicleModels = vehicleModels;
     }
 

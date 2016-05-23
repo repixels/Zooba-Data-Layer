@@ -1,5 +1,5 @@
 package pojo;
-// Generated May 15, 2016 5:02:58 PM by Hibernate Tools 4.3.1
+// Generated May 23, 2016 7:59:43 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -36,9 +36,9 @@ public class Vehicle  implements java.io.Serializable {
      private String licencePlate;
      private int intialOdemeter;
      private int currentOdemeter;
-     private Set<TrackingData> trackingDatas = new HashSet<TrackingData>(0);
-     private Set<User> users = new HashSet<User>(0);
-     private Set<Trips> tripses = new HashSet<Trips>(0);
+     private Set trackingDatas = new HashSet(0);
+     private Set users = new HashSet(0);
+     private Set tripses = new HashSet(0);
 
     public Vehicle() {
     }
@@ -51,7 +51,7 @@ public class Vehicle  implements java.io.Serializable {
         this.intialOdemeter = intialOdemeter;
         this.currentOdemeter = currentOdemeter;
     }
-    public Vehicle(User user, VehicleModel vehicleModel, String name, String licencePlate, int intialOdemeter, int currentOdemeter, Set<TrackingData> trackingDatas, Set<User> users, Set<Trips> tripses) {
+    public Vehicle(User user, VehicleModel vehicleModel, String name, String licencePlate, int intialOdemeter, int currentOdemeter, Set trackingDatas, Set users, Set tripses) {
        this.user = user;
        this.vehicleModel = vehicleModel;
        this.name = name;
@@ -136,11 +136,11 @@ public class Vehicle  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="vehicle")
-    public Set<TrackingData> getTrackingDatas() {
+    public Set getTrackingDatas() {
         return this.trackingDatas;
     }
     
-    public void setTrackingDatas(Set<TrackingData> trackingDatas) {
+    public void setTrackingDatas(Set trackingDatas) {
         this.trackingDatas = trackingDatas;
     }
 
@@ -148,20 +148,20 @@ public class Vehicle  implements java.io.Serializable {
     @JoinTable(name="user_vehicles", catalog="zooba_db", joinColumns = { 
         @JoinColumn(name="vehicle_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="user_id", nullable=false, updatable=false) })
-    public Set<User> getUsers() {
+    public Set getUsers() {
         return this.users;
     }
     
-    public void setUsers(Set<User> users) {
+    public void setUsers(Set users) {
         this.users = users;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="vehicle")
-    public Set<Trips> getTripses() {
+    public Set getTripses() {
         return this.tripses;
     }
     
-    public void setTripses(Set<Trips> tripses) {
+    public void setTripses(Set tripses) {
         this.tripses = tripses;
     }
 

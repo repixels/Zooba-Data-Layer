@@ -9,7 +9,6 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pojo.TrackingData;
-import pojo.TrackingTypes;
 import pojo.Vehicle;
 
 /**
@@ -47,15 +46,5 @@ public class TrackingDataDao {
          session.close();
         return list;
     }
-       
-       public TrackingData getBytrackingTypes(TrackingTypes trackingType){
-        Session session=factory.openSession();
-        
-         TrackingData td =  (TrackingData) session.createQuery("SELECT td FROM TrackingData td ,TrackingTypes tt WHERE tt.id = :id and tt.trackingData = td").setInteger("id", trackingType.getId()).uniqueResult();
-         session.close();
-        return td;
-    }
-       
-       
-    
+  
 }
