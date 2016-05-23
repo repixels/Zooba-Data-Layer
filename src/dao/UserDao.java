@@ -7,13 +7,8 @@ package dao;
 
 import Exceptions.DataAccessLayerException;
 import abstractDao.AbstractDao;
-import abstractDao.HibernateFactory;
 import java.util.List;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.Example;
-import org.hibernate.criterion.Restrictions;
 import pojo.User;
 
 /**

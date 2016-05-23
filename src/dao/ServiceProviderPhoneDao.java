@@ -10,8 +10,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pojo.ServiceProvider;
 import pojo.ServiceProviderPhone;
-import pojo.VehicleModel;
-import pojo.Year;
 
 /**
  *

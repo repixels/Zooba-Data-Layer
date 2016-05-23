@@ -6,16 +6,11 @@
 package dao;
 
 import abstractDao.HibernateFactory;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
 import pojo.Make;
-import pojo.Model;
 
 /**
  *

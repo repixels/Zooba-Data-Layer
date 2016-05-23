@@ -10,7 +10,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import pojo.Make;
 import pojo.Model;
 
 /**
