@@ -5,6 +5,7 @@
  */
 package dao;
 
+import abstractDao.AbstractDao;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,10 +17,11 @@ import pojo.Vehicle;
  * @author Mohammed
  */
 
-public class TrackingDataDao {
+public class TrackingDataDao extends AbstractDao<TrackingData> {
        private final SessionFactory factory;
 
     public TrackingDataDao(SessionFactory factory) {
+        super(TrackingData.class);
         this.factory = factory ;
     }
 

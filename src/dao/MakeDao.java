@@ -5,6 +5,7 @@
  */
 package dao;
 
+import abstractDao.AbstractDao;
 import abstractDao.HibernateFactory;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -16,43 +17,47 @@ import pojo.Make;
  *
  * @author yoka
  */
-public class MakeDao {
-Session session;
-    public MakeDao() {
-    session=HibernateFactory.openSession();
-    }
-    public List<Make> getMakeByName(String name)
+public class MakeDao extends AbstractDao<Make> {
+
+    Session session;
+
+    public MakeDao() 
     {
-    Criteria crt=session.createCriteria(Make.class).add(Restrictions.like("name", "%"+name+"%"));
-    List<Make> lst=crt.list();
- 
-    return lst;
-    
+        super(Make.class);
+        session = HibernateFactory.openSession();
     }
-     public List<Make> getMakeByNiceName(String niceName)
-    {
-    Criteria crt=session.createCriteria(Make.class).add(Restrictions.like("nicename", "%"+niceName+"%"));
-    List<Make> lst=crt.list();
-   
-    return lst;
-    
+
+    public List<Make> getMakeByName(String name) {
+        Criteria crt = session.createCriteria(Make.class).add(Restrictions.like("name", "%" + name + "%"));
+        List<Make> lst = crt.list();
+
+        return lst;
+
     }
-     public List<Make> getMakebyModel(String modelparam)
- {
-     Criteria crt=session.createCriteria(Make.class,"make").
-             createAlias("make.models", "model")
-            . add(Restrictions.like("model.name", "%"+modelparam+"%"));
-    List<Make> lst=crt.list();
-   
-    return lst;
-     }
-        public List<Make> getMakebyServiceProvider(String serviceProvider)
- {
-     Criteria crt=session.createCriteria(Make.class,"make").
-             createAlias("make.serviceProviders", "serviceprovider")
-            . add(Restrictions.like("serviceprovider.name", "%"+serviceProvider+"%"));
-    List<Make> lst=crt.list();
-   
-    return lst;
-     }
+
+    public List<Make> getMakeByNiceName(String niceName) {
+        Criteria crt = session.createCriteria(Make.class).add(Restrictions.like("nicename", "%" + niceName + "%"));
+        List<Make> lst = crt.list();
+
+        return lst;
+
+    }
+
+    public List<Make> getMakebyModel(String modelparam) {
+        Criteria crt = session.createCriteria(Make.class, "make").
+                createAlias("make.models", "model")
+                .add(Restrictions.like("model.name", "%" + modelparam + "%"));
+        List<Make> lst = crt.list();
+
+        return lst;
+    }
+
+    public List<Make> getMakebyServiceProvider(String serviceProvider) {
+        Criteria crt = session.createCriteria(Make.class, "make").
+                createAlias("make.serviceProviders", "serviceprovider")
+                .add(Restrictions.like("serviceprovider.name", "%" + serviceProvider + "%"));
+        List<Make> lst = crt.list();
+
+        return lst;
+    }
 }

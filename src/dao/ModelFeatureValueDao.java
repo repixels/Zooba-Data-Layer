@@ -18,39 +18,41 @@ import pojo.VehicleModel;
  *
  * @author yoka
  */
-public class ModelFeatureValueDao extends AbstractDao<ModelFeaturesValues>{
+public class ModelFeatureValueDao extends AbstractDao<ModelFeaturesValues> {
+
     Session session;
+
     public ModelFeatureValueDao() {
         super(ModelFeaturesValues.class);
-            session=HibernateFactory.openSession();
+        session = HibernateFactory.openSession();
     }
-    public List<ModelFeaturesValues> getMFValuesByCarFeature(String carFeatureName)
-    {
-     Criteria crt=session.createCriteria(ModelFeaturesValues.class,"modelf").
-              createAlias("modelf.carFeatures", "carFeatures")
-             .add(Restrictions.like("carFeatures.name", "%"+carFeatureName+"%"));
-    List<ModelFeaturesValues> lst=crt.list();
- 
-    return lst;
+
+    public List<ModelFeaturesValues> getMFValuesByCarFeature(String carFeatureName) {
+        Criteria crt = session.createCriteria(ModelFeaturesValues.class, "modelf").
+                createAlias("modelf.carFeatures", "carFeatures")
+                .add(Restrictions.like("carFeatures.name", "%" + carFeatureName + "%"));
+        List<ModelFeaturesValues> lst = crt.list();
+
+        return lst;
     }
-    public List<ModelFeaturesValues> getMFValuesByByVehicleModel(VehicleModel vModel)
-    {
-     Criteria crt=session.createCriteria(ModelFeaturesValues.class,"modelf").
-              createAlias("modelf.vehicleModels", "vModel")
-             .add(Restrictions.eq("vModel.model", vModel));
-    List<ModelFeaturesValues> lst=crt.list();
- 
-    return lst;
+
+    public List<ModelFeaturesValues> getMFValuesByByVehicleModel(VehicleModel vModel) {
+        Criteria crt = session.createCriteria(ModelFeaturesValues.class, "modelf").
+                createAlias("modelf.vehicleModels", "vModel")
+                .add(Restrictions.eq("vModel.model", vModel));
+        List<ModelFeaturesValues> lst = crt.list();
+
+        return lst;
     }
-     public List<ModelFeaturesValues> getMFValuesByByCarFeatureAndVehicleModel(VehicleModel vmodel,String carFeatureName)
-     {
-     Criteria crt=session.createCriteria(ModelFeaturesValues.class,"modelf").
-              createAlias("modelf.vehicleModels", "vModel")
-             .add(Restrictions.eq("vModel.model", vmodel))
-             .createAlias("modelf.carFeatures", "carFeatures")
-             .add(Restrictions.like("carFeatures.name", "%"+carFeatureName+"%"));;
-    List<ModelFeaturesValues> lst=crt.list();
- 
-    return lst;
-     }
+
+    public List<ModelFeaturesValues> getMFValuesByByCarFeatureAndVehicleModel(VehicleModel vmodel, String carFeatureName) {
+        Criteria crt = session.createCriteria(ModelFeaturesValues.class, "modelf").
+                createAlias("modelf.vehicleModels", "vModel")
+                .add(Restrictions.eq("vModel.model", vmodel))
+                .createAlias("modelf.carFeatures", "carFeatures")
+                .add(Restrictions.like("carFeatures.name", "%" + carFeatureName + "%"));;
+        List<ModelFeaturesValues> lst = crt.list();
+
+        return lst;
+    }
 }

@@ -5,6 +5,7 @@
  */
 package dao;
 
+import abstractDao.AbstractDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pojo.MeasuringUnit;
@@ -14,12 +15,13 @@ import pojo.Type;
  *
  * @author Mohammed
  */
-public class MeasuringUnitDao {
+public class MeasuringUnitDao extends AbstractDao<MeasuringUnit> {
     
     
      private final SessionFactory factory;
 
     public MeasuringUnitDao(SessionFactory factory) {
+        super(MeasuringUnit.class);
         this.factory = factory;
     }
     

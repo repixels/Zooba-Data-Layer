@@ -50,5 +50,5 @@ public class UserDao extends AbstractDao<User> {
     public List<User> findByExample(User t) throws DataAccessLayerException {
         return super.findByExample(t);
     }
-    
+
 }
